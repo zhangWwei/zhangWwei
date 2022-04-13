@@ -1,0 +1,73 @@
+
+# include <stdio.h>
+# include <stdlib.h>
+# include <time.h>
+void meun()
+{
+
+    printf("########猜数字游戏##########\n");
+    printf("##                        ##\n");
+    printf("##   1.play     0.exit    ##\n");
+    printf("##                        ##\n");
+    printf("############################\n");
+}
+
+void game()
+{
+
+    int num = 0;
+    int glu = 0;
+    srand((unsigned int)time(NULL));
+    num = rand()%10+1;
+    printf("输入你猜得数字：\n");
+
+    do
+    {
+        scanf("%d", &glu);
+
+        if(glu < num)
+            printf("小了！\n");
+        else if(glu > num)
+            printf("大了！\n");
+        else
+            printf("恭喜通关!!!\n");
+
+    }while(glu != num);
+
+}
+
+int main()
+{
+
+    int ret = 1;
+
+    while(ret)
+    {
+
+        meun();
+        scanf("%d", &ret);
+
+        switch(ret)
+        {
+        case 1:
+            game();
+
+            break;
+        case 0:
+
+            break;
+        default:
+            system("cls");
+            printf("输入错误请重新输入：\n");
+            break;
+        }
+
+
+
+    }
+
+
+    meun();
+
+    return 0;
+}
